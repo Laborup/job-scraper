@@ -4,12 +4,15 @@ BOT_NAME = 'indeed'
 SPIDER_MODULES = ['indeed.spiders']
 NEWSPIDER_MODULE = 'indeed.spiders'
 
+ITEM_PIPELINES={
+    "indeed.pipelines.IndeedPipeline": 100,
+}
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
 ## ScrapeOps API Key
-SCRAPEOPS_API_KEY = 'YOUR_API_KEY' ## Get Free API KEY here: https://scrapeops.io/app/register/main
+SCRAPEOPS_API_KEY = 'e744b2eb-d700-4ded-a918-34d17ad2da01' ## Get Free API KEY here: https://scrapeops.io/app/register/main
 
 ## Enable ScrapeOps Proxy
 SCRAPEOPS_PROXY_ENABLED = True
@@ -30,5 +33,8 @@ DOWNLOADER_MIDDLEWARES = {
     'indeed.middlewares.ScrapeOpsProxyMiddleware': 725,
 }
 
+
+
 # Max Concurrency On ScrapeOps Proxy Free Plan is 1 thread
 CONCURRENT_REQUESTS = 1
+

@@ -32,6 +32,7 @@ class IndeedJobSpider(scrapy.Spider):
 
             ## Extract Jobs From Search Page
             jobs_list = json_blob['metaData']['mosaicProviderJobCardsModel']['results']
+            
             for index, job in enumerate(jobs_list):
                 if job.get('jobkey') is not None:
                     job_url = 'https://www.indeed.com/m/basecamp/viewjob?viewtype=embedded&jk=' + job.get('jobkey')
@@ -74,9 +75,8 @@ class IndeedJobSpider(scrapy.Spider):
                 'company': job.get('companyName'),
                 'jobkey': response.meta['jobKey'],
                 'jobTitle': job.get('jobTitle'),
-                'jobDescription': job.get('sanitizedJobDescription').get('content') if job.get('sanitizedJobDescription') is not None else '',
+                'jobDescription': job.get('sanitizedJobDescription'),
             }
-
 
 
 

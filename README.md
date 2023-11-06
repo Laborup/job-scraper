@@ -147,7 +147,7 @@ However, if you upgrade to a paid ScrapeOps Proxy plan you will have more concur
 ```python
 # settings.py
 
-CONCURRENT_REQUESTS = 10
+CONCURRENT_REQUESTS = 1
 
 ```
 
@@ -197,4 +197,11 @@ To deactivate the ScrapeOps Proxy & Monitor simply comment out the follow code i
 # }
 
 ```
+
+## Scrapy Splash 
+```bash
+docker pull scrapinghub/splash
+sudo docker run -it -p 8050:8050 --rm scrapinghub/splash
+```
+
 
